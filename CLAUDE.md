@@ -4,6 +4,21 @@
 
 ## DEADLINE: March 8, 2026 (AoE)
 
+## Status & Timeline
+
+Research phase is complete (4 beads closed). The project is now in **Phase 1: Infrastructure** per the plan.
+
+| Day | Date | Phase | Status |
+|-----|------|-------|--------|
+| 1 | Mar 3 (Mon) | Research + data extraction + template setup | Research DONE. Data extraction & template next. |
+| 2 | Mar 4 (Tue) | Write Introduction + Related Work + Methodology | |
+| 3 | Mar 5 (Wed) | Write Case Study + Context Fluency + figures/tables | |
+| 4 | Mar 6 (Thu) | Write Research Agenda + Conclusion + references + first draft review | |
+| 5 | Mar 7 (Fri) | Revisions, formatting, PDF generation, submit | |
+| Buffer | Mar 8 (Sat) | Deadline AoE (UTC-12). Final window if needed. | |
+
+**Next steps:** Create beads for Phase 1 tasks, deploy data extraction agent into `~/hackathon-infactory/` (read-only) and template setup agent here. See `.claude/plans/vibex-2026-submission.md` for full plan.
+
 ## Submission Details
 
 - **Type:** Positioning Paper (5 pages incl. references)
