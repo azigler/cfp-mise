@@ -50,13 +50,14 @@ ratio---9,386 words of planning against 8,496 lines of source code---was
   \centering
   \caption{Hackathon timeline and artifact summary.}
   \label{tab:timeline}
-  \begin{tabular}{lrl}
+  \small
+  \begin{tabular}{@{}lrl@{}}
     \toprule
     \textbf{Phase} & \textbf{Duration} & \textbf{Key Artifacts} \\
     \midrule
     Contextual grounding & $\sim$2 hr & 10 docs (9,386 words) \\
-    Collaborative specification & (concurrent) & Product specification \\
-    Task decomposition & (concurrent) & 64 beads with dependencies \\
+    Collab.\ specification & (concurrent) & Product specification \\
+    Task decomposition & (concurrent) & 64 beads w/ dependencies \\
     Agent implementation & $\sim$2.7 hr & 43 files, 8,496 LoC \\
     Deployment \& polish & 52 min & 9 commits, 6 bugs fixed \\
     \bottomrule
@@ -65,10 +66,11 @@ ratio---9,386 words of planning against 8,496 lines of source code---was
 
 \subsection{Implementation and Results}
 
-Four parallel subagents were deployed, each responsible for a distinct feature
-area: classroom creation flow, student research workspace, day-one/day-thirty
-demo state toggle, and Socratic AI tutor. The agents drew on the contextual
-grounding documents and specification produced during preparation.
+Four parallel subagents were deployed, each responsible for a distinct
+feature area: classroom creation, student research workspace,
+day-one/\allowbreak day-thirty demo toggle, and Socratic AI tutor. The agents
+drew on the contextual grounding documents and specification produced
+during preparation.
 
 The first git commit contained 76 files and 13,143 lines---the bulk of
 the codebase produced in one pass before any code was committed to version
