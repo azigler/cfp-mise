@@ -6,7 +6,7 @@ gains: Peng et al.\ found that developers using GitHub Copilot completed tasks
 into quality. Veracode's 2025 analysis found that 45\% of AI-generated code
 contains security flaws~\cite{veracode2025ai}, while Mozannar et al.\ showed
 that developers' mental models frequently diverge from actual AI behavior, leading
-to inappropriate acceptance of incorrect suggestions~\cite{developer2025mental}.
+to inappropriate acceptance of incorrect suggestions~\cite{developer2023mental}.
 Vasconcelos et al.\ demonstrated that trust in AI code generation depends on
 context-aware explanations that current tools rarely
 provide~\cite{facct2024trust}. Together, these findings point to a productivity paradox:
@@ -18,7 +18,10 @@ practitioners intend.
 Several preparation-oriented methodologies have emerged in response. Horthy's
 Research-Plan-Implement (RPI) methodology~\cite{horthy2025rpi} most directly
 anticipates our work, requiring practitioners to complete discrete research and
-planning phases before any code is generated. GitHub's Spec
+planning phases before any code is generated. Mise en place differs from RPI
+by formalizing tacit knowledge externalization in Phase~1 and insisting on
+backward-design sequencing where all three phases complete before
+implementation begins. GitHub's Spec
 Kit~\cite{github2025speckit} formalizes specification-driven development, where
 a structured specification artifact governs agent behavior throughout
 implementation. More broadly, the discourse has shifted from
@@ -50,7 +53,10 @@ this directly: defining agent outputs and success criteria before designing
 context. Polanyi's tacit knowledge---``we can know more than we can
 tell''~\cite{polanyi1966tacit, polanyi1958personal}---frames preparation as a
 knowledge externalization problem. Agents cannot access knowledge that has not
-been made explicit; preparation is the act of making it so.
+been made explicit; preparation is the act of making it so. Nonaka and
+Takeuchi's SECI model~\cite{nonaka1995knowledge} formalizes this
+tacit-to-explicit conversion as a repeatable organizational process, providing
+additional theoretical grounding for Phase~1's knowledge externalization step.
 
 These four streams---empirical AI-assisted development research, emerging
 preparation methodologies, practitioner tooling, and educational

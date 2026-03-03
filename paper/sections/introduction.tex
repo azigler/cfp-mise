@@ -12,10 +12,13 @@ iterative correction. This creates a systematic alignment problem: agents
 operating without sufficient context produce code that requires extensive
 rework. Veracode reports that 45\% of AI-generated code contains security
 flaws~\cite{veracode2025ai}, and practitioners consistently observe that
-debugging misaligned agent output can consume 70\% or more of total
+debugging misaligned agent output can consume substantial
 development time~\cite{huntley2025ralph, yegge2025beads}. The bottleneck in
 agentic coding is not code generation but alignment between developer intent
-and agent output.
+and agent output---that is, the degree to which agent-produced artifacts
+exhibit specification compliance (planned features built as specified),
+architectural fidelity (design decisions honored across the codebase),
+and low rework ratio (corrective commits as a proportion of total commits).
 
 We argue that this alignment problem is fundamentally a \emph{preparation}
 problem. Drawing on the culinary concept of \emph{mise en place}---a French
