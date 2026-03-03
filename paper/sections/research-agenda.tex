@@ -1,24 +1,69 @@
 \section{Research Agenda and Conclusion}
-% TODO: Content to be written by writing agents
-% Target: ~400 words
-%
-% Open questions for the community:
-%
-% RQ1: Does deliberate preparation reduce agent misalignment compared to
-%   iterative development, and at what cost-benefit threshold?
-%
-% RQ2: What constitutes "sufficient" context for agentic work --- can we
-%   define stopping criteria?
-%
-% RQ3: How does context fluency vary across practitioners, domains, and
-%   agent models?
-%
-% RQ4: Can mise en place principles scale beyond prototyping to sustained,
-%   multi-month projects?
-%
-% RQ5: What is the relationship between preparation time and implementation
-%   quality across different project complexities?
-%
-% Conclude: Mise en place is not a finished answer but a starting framework.
-% Invite empirical validation, replication studies, and tool development.
-\lipsum[11]
+
+\subsection{Research Agenda}
+
+Mise en place as described here rests on a single case study and conceptual
+argument. Empirical validation across practitioners, domains, and agent
+models is essential. We propose five research questions to guide this work:
+
+\begin{description}
+  \item[RQ1:] \emph{Does deliberate preparation reduce agent misalignment
+    compared to iterative development, and at what cost-benefit threshold?}
+    Controlled experiments comparing preparation-first and iteration-first
+    workflows on equivalent tasks could establish whether the upfront time
+    investment yields net savings---and identify the project characteristics
+    where each approach dominates.
+
+  \item[RQ2:] \emph{What constitutes ``sufficient'' context for agentic
+    work---can we define stopping criteria for the preparation phase?}
+    A saturation-style analysis of context documents, measuring alignment
+    quality as a function of context volume and specificity, would help
+    practitioners know when to stop preparing and start building.
+
+  \item[RQ3:] \emph{How does context fluency vary across practitioners,
+    domains, and agent models?} Studies comparing developers with different
+    backgrounds (e.g., education, domain expertise, years of experience) on
+    identical agentic tasks could reveal whether context fluency is a
+    trainable skill or a function of prior domain
+    knowledge~\cite{polanyi1958personal}.
+
+  \item[RQ4:] \emph{Can mise en place principles scale beyond prototyping to
+    sustained, multi-month development projects?} Our hackathon case
+    represents a constrained, time-limited setting. Longitudinal case studies
+    tracking preparation practices and their outcomes across full product
+    development cycles would test the methodology's applicability at
+    scale~\cite{dakhel2025humanai}.
+
+  \item[RQ5:] \emph{What is the relationship between preparation time and
+    implementation quality across different project complexities?} A
+    multi-project dataset correlating preparation artifacts (document count,
+    word count, task granularity) with implementation metrics (defect rate,
+    alignment accuracy, rework ratio) could yield quantitative models of the
+    preparation-quality relationship~\cite{alomar2025promptware}.
+\end{description}
+
+These questions span experimental, observational, and longitudinal designs.
+We believe the most immediately tractable is RQ1, which could be addressed
+with paired tasks and a modest participant pool.
+
+\subsection{Conclusion}
+
+Mise en place is not a finished methodology but a starting framework---a
+formalization of preparation practices that experienced practitioners are
+already converging on independently~\cite{huntley2025ralph, horthy2025rpi,
+yegge2025beads}. Our single case study suggests that deliberate preparation
+can dramatically compress implementation time and reduce architectural
+misalignment, but we make no claim of generalizability from one hackathon.
+What we do claim is that the alignment problem in agentic coding is
+fundamentally a preparation problem, and that the field would benefit from
+treating the work that happens \emph{before} agents write code as a
+first-class engineering discipline.
+
+The concept of context fluency offers a lens for understanding emerging
+practitioner skills in AI-assisted development---skills that bridge domain
+expertise, pedagogical design, and specification craft. We invite empirical
+validation, replication across domains and practitioner profiles, and the
+development of tools that support preparation-phase
+work~\cite{anthropic2025context, github2025speckit}. The code, increasingly,
+is the easy part. The hard part---knowing what to build and
+why---remains a distinctly human contribution.
