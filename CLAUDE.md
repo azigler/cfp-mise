@@ -4,20 +4,39 @@
 
 ## DEADLINE: March 8, 2026 (AoE)
 
-## Status & Timeline
+## Status
 
-Research phase is complete (4 beads closed). The project is now in **Phase 1: Infrastructure** per the plan.
+Research phase is complete (4 beads closed). **Pipeline starts at Phase 1.**
 
-| Day | Date | Phase | Status |
-|-----|------|-------|--------|
-| 1 | Mar 3 (Mon) | Research + data extraction + template setup | Research DONE. Data extraction & template next. |
-| 2 | Mar 4 (Tue) | Write Introduction + Related Work + Methodology | |
-| 3 | Mar 5 (Wed) | Write Case Study + Context Fluency + figures/tables | |
-| 4 | Mar 6 (Thu) | Write Research Agenda + Conclusion + references + first draft review | |
-| 5 | Mar 7 (Fri) | Revisions, formatting, PDF generation, submit | |
-| Buffer | Mar 8 (Sat) | Deadline AoE (UTC-12). Final window if needed. | |
+## Pipeline
 
-**Next steps:** Create beads for Phase 1 tasks, deploy data extraction agent into `~/hackathon-infactory/` (read-only) and template setup agent here. See `.claude/plans/vibex-2026-submission.md` for full plan.
+This project runs as a continuous pipeline. Each phase feeds the next. The orchestrator creates beads, deploys subagents, merges results, and advances to the next phase without stopping. The end result is a complete paper PDF and a production notes file for the owner to review.
+
+### Phase 1: Infrastructure
+- Deploy data extraction agent into `~/hackathon-infactory/` (read-only) → saves to `data/`
+- Set up ACM LaTeX template in `paper/` with section scaffolding
+- Both can run in parallel. Phase 2 depends on data extraction completing.
+
+### Phase 2: Writing
+- Write Related Work section (draws from `.claude/research/literature-survey.md`)
+- Write Methodology + Case Study sections (draws from published article + extracted data)
+- Write Introduction, Context Fluency, Research Agenda, Conclusion
+- Parallelizable where sections don't cross-reference each other.
+
+### Phase 3: Assembly
+- Merge all sections into `paper/main.tex`
+- Compile reference list in `references.bib`
+- Create Figure 1 (methodology diagram) and Table 1 (timeline/metrics)
+- Verify page count against 5-page limit. Trim if needed.
+
+### Phase 4: Review Package
+- Build final PDF
+- Write `REVIEW-NOTES.md` at project root with:
+  - Decisions made and rationale
+  - Areas where owner judgment is needed (tone, claims strength, author info)
+  - Any concerns about page count, citation gaps, or framing
+  - Instructions for EasyChair submission (author names, affiliations, keywords)
+- Owner reviews, approves or requests changes, then submits.
 
 ## Submission Details
 
