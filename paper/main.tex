@@ -1,0 +1,82 @@
+%%
+%% Mise en Place for Agentic Coding
+%% VibeX 2026 - Positioning Paper
+%%
+\documentclass[sigconf,review]{acmart}
+
+%% Bibliography style
+\bibliographystyle{ACM-Reference-Format}
+
+%% Conference metadata
+\acmConference[VibeX 2026]{1st International Workshop on Vibe Coding and Vibe Researching}{9--12 June, 2026}{Glasgow, Scotland, United Kingdom}
+
+%% Remove ACM-specific fields for workshop submission
+\settopmatter{printacmref=false}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+
+%% Packages
+\usepackage{lipsum}
+\usepackage{booktabs}
+
+%% Title
+\title{Mise en Place for Agentic Coding: Deliberate Preparation as Context Engineering Methodology}
+
+%% Authors (placeholder)
+\author{[Author Name]}
+\email{[author@example.com]}
+\affiliation{%
+  \institution{[Institution]}
+  \city{[City]}
+  \country{[Country]}
+}
+
+\begin{document}
+
+%% Abstract
+\begin{abstract}
+The rapid adoption of AI coding agents has produced a dominant workflow pattern --- often called ``vibe coding'' --- that prioritizes speed of implementation over deliberate preparation. We argue that this approach creates a systematic alignment problem: agents that lack sufficient context produce code requiring extensive debugging and refactoring, consuming 70\% or more of total development time. Drawing on the culinary concept of \emph{mise en place} (everything in its place), we propose a three-phase preparation methodology for agentic coding: (1) contextual grounding, where domain expertise and tacit knowledge are externalized into structured documents; (2) collaborative specification, where human-agent dialogue produces detailed design artifacts; and (3) task decomposition, where specifications are converted into structured, dependency-aware task records. We report on the application of this methodology during a competitive hackathon, where two hours of preparation enabled a near-one-shot implementation of a full-stack educational platform by parallel AI agents. We introduce the concept of \emph{context fluency} as an emerging developer skill --- the ability to create rich, structured context that agents can act on --- and connect it to established frameworks in backward design and tacit knowledge externalization. We conclude with a research agenda for empirically validating preparation-phase methodologies in AI-assisted software development.
+\end{abstract}
+
+%% CCS Concepts
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10011007.10011074</concept_id>
+       <concept_desc>Software and its engineering~Software creation and management</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+   <concept>
+       <concept_id>10011007.10011074.10011099</concept_id>
+       <concept_desc>Software and its engineering~Collaboration in software development</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+   <concept>
+       <concept_id>10003120.10003121</concept_id>
+       <concept_desc>Human-centered computing~Human computer interaction (HCI)</concept_desc>
+       <concept_significance>300</concept_significance>
+   </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Software and its engineering~Software creation and management}
+\ccsdesc[500]{Software and its engineering~Collaboration in software development}
+\ccsdesc[300]{Human-centered computing~Human computer interaction (HCI)}
+
+%% Keywords
+\keywords{agentic coding, mise en place, context engineering, vibe coding, context fluency}
+
+\maketitle
+
+%% Sections
+\input{sections/introduction}
+\input{sections/related-work}
+\input{sections/methodology}
+\input{sections/case-study}
+\input{sections/context-fluency}
+\input{sections/research-agenda}
+
+%% References
+\bibliography{references}
+
+\end{document}
