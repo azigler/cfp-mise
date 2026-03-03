@@ -1,0 +1,23 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb
+
+# Generated PDF (rebuild from source)
+*.pdf
+
+# ACM class and bst files are tracked for reproducibility
+# (downloaded from CTAN, generated from acmart.dtx via acmart.ins)
+!acmart.cls
+!ACM-Reference-Format.bst
