@@ -1,62 +1,52 @@
 \section{Context Fluency: An Emerging Skill}
 
 Our case study and the broader practitioner literature suggest that effective
-agentic coding requires a skill set distinct from both traditional
-programming and prompt engineering. We propose the term \emph{context
-fluency} to describe this emerging capability: the ability to create rich,
-structured context that AI agents can act on effectively. Context fluency
-encompasses capturing domain expertise, value judgments, and design intent in
-machine-legible form---not as one-shot prompts, but as persistent
-informational environments within which agents operate. This distinction is
-critical. Prompt engineering optimizes individual instructions to a model;
-context fluency is \emph{upstream} of prompting, concerned with the entire
-informational architecture that surrounds agent
-execution~\cite{anthropic2025context, gartner2025context}.
+agentic coding requires a skill set distinct from both traditional programming
+and prompt engineering. We propose the term \emph{context fluency} to describe
+this capability: the ability to create rich, structured context that AI agents
+can act on effectively. Context fluency encompasses capturing domain expertise,
+value judgments, and design intent in machine-legible form---not as one-shot
+prompts, but as persistent informational environments within which agents
+operate. Prompt engineering optimizes individual instructions; context fluency
+is \emph{upstream} of prompting, concerned with the entire informational
+architecture surrounding agent execution~\cite{anthropic2025context,
+gartner2025context}.
 
-We identify four components of context fluency as practiced in our case study
-and observed in adjacent practitioner work:
+We identify four components of context fluency:
 \begin{description}
   \item[Decomposition:] Breaking problems into discrete, parallelizable
-    tasks with clear boundaries---enabling multiple agents to work
-    concurrently without coordination overhead.
+    tasks with clear boundaries, enabling concurrent agent execution.
   \item[Specification:] Describing not just \emph{what} to build but
-    \emph{why}, so that agents can make aligned micro-decisions at
-    implementation time without requiring human intervention.
+    \emph{why}, so agents can make aligned micro-decisions without human
+    intervention.
   \item[Constraint definition:] Knowing what to exclude, simplify, or
-    defer---scope management as a first-class concern. In our hackathon case,
-    constraining the product to a single assignment type was as important as
-    any feature we included.
-  \item[Domain encoding:] Capturing lived experience, value judgments, and
-    tacit knowledge~\cite{polanyi1966tacit} that agents cannot generate
-    independently. The twenty minutes spent dictating pedagogical intuitions
-    about productive struggle produced the context that made the Socratic
-    tutor's behavior correct on first implementation.
+    defer---scope management as a first-class concern.
+  \item[Domain encoding:] Capturing tacit knowledge~\cite{polanyi1966tacit}
+    that agents cannot generate independently. The twenty minutes spent
+    dictating pedagogical intuitions produced the context that made the
+    Socratic tutor's behavior correct on first implementation.
 \end{description}
 
-These components map to established theoretical frameworks. Backward
-design~\cite{wiggins1998understanding} contributes the principle of
-outcome-driven preparation: defining what success looks like before
-designing the path to reach it. Polanyi's work on tacit
-knowledge~\cite{polanyi1958personal} frames the externalization challenge:
-practitioners ``know more than they can tell,'' and context fluency is
-precisely the discipline of telling it anyway, in a form that agents can
-consume. We also observe a strong connection to pedagogical scaffolding.
-The skill set of context fluency closely resembles lesson planning in
-education---creating conditions where the learner (or agent) can do
-meaningful work independently, because the environment has been structured
-in advance. This connection between teaching and context engineering is not
-coincidental: both are fundamentally about enabling others to act effectively
-within a defined informational context.
+These components map to established frameworks. Backward
+design~\cite{wiggins1998understanding} contributes outcome-driven preparation.
+Polanyi's tacit knowledge~\cite{polanyi1958personal} frames the externalization
+challenge: practitioners ``know more than they can tell,'' and context fluency
+is the discipline of telling it anyway. We also observe a strong connection to pedagogical scaffolding. The skill set
+of context fluency closely resembles lesson planning in education---creating
+conditions where the learner (or agent) can do meaningful work independently,
+because the environment has been structured in advance. This connection between
+teaching and context engineering is not coincidental: both are fundamentally
+about enabling others to act effectively within a defined informational context.
 
-If context fluency is a distinct and identifiable skill, the implications
-extend beyond individual practice. For developer education, it suggests that
-curricula should cultivate specification, decomposition, and domain-encoding
-abilities alongside traditional programming competencies. For hiring, it
-implies that practitioners with strong domain knowledge and pedagogical
-instincts---the ability to structure information for consumption by
-others---may be disproportionately effective in agentic
-workflows~\cite{dakhel2025humanai}. For tool design, it reframes preparation
-aids such as structured task systems~\cite{yegge2025beads,
-emanuel2025beadsrust}, specification frameworks~\cite{github2025speckit},
-and context engineering platforms~\cite{anthropic2025context} as essential
-infrastructure rather than optional enhancements.
+If context fluency is a distinct and identifiable skill, the implications extend
+beyond individual practice. For developer education, it suggests that curricula
+should cultivate specification, decomposition, and domain-encoding abilities
+alongside traditional programming competencies. For hiring, it implies that
+practitioners with strong domain knowledge and pedagogical instincts---the
+ability to structure information for consumption by others---may be
+disproportionately effective in agentic workflows~\cite{dakhel2025humanai}.
+For tool design, it reframes preparation aids such as structured task
+systems~\cite{yegge2025beads, emanuel2025beadsrust}, specification
+frameworks~\cite{github2025speckit}, and context engineering
+platforms~\cite{anthropic2025context} as essential infrastructure rather than
+optional enhancements.

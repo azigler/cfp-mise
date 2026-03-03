@@ -26,32 +26,25 @@ preparation, applying the three phases described in
 Section~\ref{sec:methodology}.
 
 \textbf{Contextual grounding} produced 10 planning documents totaling 9,386
-words. These included API exploration notes, UI architecture plans, competitive
-analysis of other teams' approaches, domain knowledge capture from a recent
-interview with The Atlantic's CEO, and---critically---an extended dictation
-on pedagogical design philosophy drawn from the practitioner's teaching
-experience. This last document encoded tacit knowledge about how effective
-learning environments create conditions for student thinking rather than
-delivering answers~\cite{polanyi1966tacit}.
+words, including API exploration notes, competitive analysis, and---critically---an
+extended dictation on pedagogical design philosophy drawn from the practitioner's
+teaching experience, encoding tacit knowledge about how effective learning
+environments create conditions for student thinking~\cite{polanyi1966tacit}.
 
-\textbf{Collaborative specification} occurred concurrently with contextual
-grounding, as the practitioner refined the product concept through dialogue
-with an AI agent. The resulting specification described a platform where
-teachers curate bounded research environments from The Atlantic's archive and
-students conduct research using a Socratic AI tutor. Key value judgments
-encoded in the specification included constraining the product to a single
-assignment type (prioritizing depth over breadth for a three-minute demo),
-insisting on real API data rather than mocks, and scoping the analytics
-dashboard to show the student's research \emph{journey} rather than only
-the final submission.
+\textbf{Collaborative specification} occurred concurrently, as the practitioner
+refined the product concept through dialogue with an AI agent. The resulting
+specification described a platform where teachers curate bounded research
+environments from The Atlantic's archive and students conduct research using a
+Socratic AI tutor. Key value judgments encoded in the specification included
+constraining the product to a single assignment type (prioritizing depth over
+breadth for a three-minute demo),
+insisting on real API data rather than mocks, and scoping the analytics dashboard
+to show the student's research \emph{journey} rather than only the final submission.
 
 \textbf{Task decomposition} converted the specification into 64 structured
-task records (beads) with priorities and dependencies. The planning-to-code
-ratio---9,386 words of planning documents against 8,496 lines of source
-code---was 1.10:1, indicating that the practitioner produced more planning
-content by word count than the agents ultimately produced in code.
-Table~\ref{tab:timeline} summarizes the timeline and artifact output of each
-phase.
+task records with priorities and dependencies. The planning-to-code
+ratio---9,386 words of planning against 8,496 lines of source code---was
+1.10:1. Table~\ref{tab:timeline} summarizes the timeline.
 
 \begin{table}[t]
   \centering
@@ -70,53 +63,41 @@ phase.
   \end{tabular}
 \end{table}
 
-\subsection{Implementation Phase}
+\subsection{Implementation and Results}
 
 Four parallel subagents were deployed, each responsible for a distinct feature
 area: classroom creation flow, student research workspace, day-one/day-thirty
 demo state toggle, and Socratic AI tutor. The agents drew on the contextual
 grounding documents and specification produced during preparation.
 
-The first git commit, recorded at 22:24 UTC, contained 76 files and 13,143
-lines---the bulk of the codebase produced during the implementation phase
-before any code was committed to version control. The subsequent deployment
-and polish phase produced 9 commits over 52 minutes, with a mean inter-commit
-interval of 6 minutes 32 seconds. The final codebase comprised 43
-TypeScript/TSX files totaling 8,496 lines of source code, deployed to a
-production environment with real Atlantic archive data served through a
-serverless API proxy.
+The first git commit contained 76 files and 13,143 lines---the bulk of
+the codebase produced in one pass before any code was committed to version
+control. The subsequent deployment phase produced 9 commits over 52 minutes
+(mean inter-commit interval: 6 min 32 sec). The final codebase comprised 43
+TypeScript/TSX files totaling 8,496 lines, deployed to production with real
+Atlantic archive data served through a serverless API proxy.
 
-The median bead closure time was 5.9 minutes, indicating that individual
-tasks were scoped to a granularity that agents could complete rapidly. Of 68
-total beads (64 created during the hackathon plus 4 post-event), 47 were
-closed (69.1\%). The 21 remaining open beads were stretch features---secondary
-capabilities explicitly deprioritized during task decomposition. All 6 bugs
-filed during the event were resolved (100\% bug resolution rate).
-
-\subsection{Results and Observations}
+The median bead closure time was 5.9 minutes. Of 68 total beads, 47 were
+closed (69.1\%). The 21 remaining open beads were stretch features explicitly
+deprioritized during decomposition. All 6 bugs filed during the event were
+resolved (100\% bug resolution rate).
 
 The resulting product, ``The Beat,'' was an educational platform with teacher
 dashboards, student research workspaces, article annotation tools, citation
 validation, and a Socratic AI tutor. The judges selected it for first place.
 
-Three observations from this case study are relevant to the methodology's
-evaluation. First, the architecture was correct on first pass: no structural
-refactoring was required during the deployment phase. The bugs that emerged
-were integration and styling issues---API content truncation, data flow between
-components, favicon configuration---not architectural misalignment. This
-suggests that the preparation phase successfully transferred the practitioner's
-architectural intent to the agents.
-
-Second, the preparation-to-execution time ratio was approximately 5.7:1
-(roughly 17 hours of total session time against 3 hours of agent
-implementation and deployment). While this ratio reflects a single
-practitioner's workflow and cannot be generalized, it indicates a deliberate
-investment in preparation that is directionally opposite to the ``start coding
-immediately'' pattern common in hackathon settings.
-
-Third, the near-zero architectural rework is consistent with the hypothesis
-that rich upfront context reduces agent misalignment, though we cannot
-establish causation from a single uncontrolled case study.
+Three observations are relevant to the methodology's evaluation. First, the
+architecture was correct on first pass: no structural refactoring was required
+during the deployment phase. The bugs that emerged were integration and styling
+issues---API content truncation, data flow between components, favicon
+configuration---not architectural misalignment. This suggests that the
+preparation phase successfully transferred the practitioner's architectural
+intent to the agents. Second, the preparation-to-execution
+time ratio was approximately 5.7:1, indicating a deliberate investment directionally
+opposite to the ``start coding immediately'' pattern common in hackathon settings.
+Third, near-zero architectural rework is consistent with the hypothesis that rich
+upfront context reduces agent misalignment, though we cannot establish causation
+from a single case study.
 
 \subsection{Limitations}
 
@@ -126,5 +107,4 @@ whether the outcome would have differed with less preparation, a different
 practitioner, or a different AI model. The hackathon setting, while providing
 authentic time pressure, is not representative of sustained multi-month
 development. We present these results as suggestive evidence that the
-methodology merits further investigation, not as proof of its general
-efficacy.
+methodology merits further investigation, not as proof of its general efficacy.
