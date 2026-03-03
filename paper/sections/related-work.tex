@@ -1,16 +1,75 @@
 \section{Background and Related Work}
-% TODO: Content to be written by writing agents
-% Target: ~600 words
-%
-% Key points to cover:
-% - AI-assisted coding workflows: Copilot studies, productivity gains,
-%   security concerns (Veracode 45% flaw rate)
-% - Emerging preparation methodologies: RPI (Horthy), Spec-Driven
-%   Development (GitHub Spec Kit), Context Engineering (Anthropic/Gartner)
-% - Practitioner innovations: Ralph Loop (Huntley), Beads (Yegge),
-%   beads_rust (Emanuel)
-% - Theoretical foundations: Backward design (Wiggins & McTighe),
-%   tacit knowledge (Polanyi)
-% - Gap: No formalized, theoretically-grounded methodology for
-%   preparation-phase work
-\lipsum[2-3]
+
+Early empirical studies of AI-assisted coding reported substantial productivity
+gains: Peng et al.\ found that developers using GitHub Copilot completed tasks
+21--55\% faster than a control group~\cite{peng2023copilot}. However, speed has
+not translated cleanly into quality. Veracode's 2025 industry analysis found
+that 45\% of AI-generated code contains security flaws, with a tenfold spike in
+security findings attributed to AI-authored code~\cite{veracode2025ai}.
+Research on the human side reveals complementary concerns: Mozannar et al.\
+showed that developers' mental models frequently diverge from actual AI
+behavior, leading to inappropriate acceptance of incorrect
+suggestions~\cite{developer2025mental}, while Vasconcelos et al.\ demonstrated
+that trust in AI code generation depends on context-aware explanations that
+current tools rarely provide~\cite{facct2024trust}. Together, these findings
+point to a productivity paradox: AI agents accelerate output while
+simultaneously increasing the surface area for rework and defects. The
+bottleneck in agentic coding, we argue, is not code generation but
+\emph{alignment}---ensuring that what agents build matches what practitioners
+intend.
+
+Several preparation-oriented methodologies have emerged in response.
+Horthy's Research-Plan-Implement (RPI) methodology~\cite{horthy2025rpi} most
+directly anticipates our work, requiring practitioners to complete discrete
+research and planning phases before any code is generated. GitHub's Spec
+Kit~\cite{github2025speckit} formalizes specification-driven development, where
+a structured specification artifact governs agent behavior throughout
+implementation. At a broader level, the discourse has shifted from prompt
+engineering---optimizing individual instructions---to \emph{context
+engineering}: designing the complete informational environment surrounding an
+LLM~\cite{anthropic2025context, gartner2025context}. Alomar et al.\ extend this
+trajectory further by proposing \emph{promptware engineering}, the application
+of established software engineering principles to the development and
+maintenance of prompts as first-class artifacts~\cite{alomar2025promptware}.
+Dakhel et al.'s taxonomy of human-AI collaboration identifies eleven distinct
+interaction types~\cite{dakhel2025humanai}, providing a classification framework
+within which preparation-phase activities can be situated. Collectively, these
+contributions recognize that what happens \emph{before} agent execution shapes
+outcomes, but none offers a unified, theoretically grounded methodology for the
+preparation phase itself.
+
+A parallel stream of practitioner innovation has addressed preparation through
+tooling and workflow patterns. Karpathy coined ``vibe
+coding''~\cite{karpathy2025vibe} to describe a minimal-preparation workflow in
+which the developer ``fully gives in to the vibes'' and trusts the model---an
+approach he explicitly scoped to throwaway weekend projects, yet the term
+rapidly entered mainstream dictionaries and came to characterize the dominant
+mode of AI-assisted development. At the opposite end of the preparation
+spectrum, Huntley's Ralph Loop~\cite{huntley2025ralph} provides a pattern of
+fine-grained, iterative task delegation to agents, emphasizing persistence over
+planning. Yegge's Beads framework~\cite{yegge2025beads} addresses agent memory
+through structured task records with dependency tracking, extended by Emanuel's
+high-performance Rust reimplementation~\cite{emanuel2025beadsrust}. These tools
+solve specific problems---iteration, memory, orchestration---but assume that
+appropriate context and specifications already exist.
+
+Our methodology draws on two established theoretical frameworks. Wiggins and
+McTighe's \emph{backward design}~\cite{wiggins1998understanding} holds that
+effective instruction begins with desired outcomes, then works backward through
+assessment criteria to learning activities---a deliberate inversion of the
+conventional ``content-first'' approach. We apply this principle directly:
+defining agent outputs and success criteria before designing the context that
+will produce them. Polanyi's concept of tacit knowledge---``we can know more
+than we can tell''~\cite{polanyi1966tacit, polanyi1958personal}---frames the
+preparation phase as a knowledge externalization problem. Much of what
+experienced developers know about a domain, its constraints, and its value
+judgments remains tacit until deliberately articulated into forms that agents
+can consume. Agents cannot access knowledge that has not been made explicit;
+preparation is the act of making it so.
+
+These four streams---empirical AI-assisted development research, emerging
+preparation methodologies, practitioner tooling, and educational
+theory---converge on the importance of deliberate preparation but remain
+fragmented. No existing work unifies them into a formalized methodology with
+theoretical grounding and empirical demonstration. Our mise en place framework
+addresses this gap.
