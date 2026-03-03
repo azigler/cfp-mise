@@ -14,8 +14,10 @@
 *.snm
 *.vrb
 
-# Generated PDF (rebuild from source)
+# Generated PDFs (rebuild from source)
 *.pdf
+# Track the main paper PDF for review
+!main.pdf
 
 # ACM class and bst files are tracked for reproducibility
 # (downloaded from CTAN, generated from acmart.dtx via acmart.ins)
