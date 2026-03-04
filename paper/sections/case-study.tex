@@ -9,14 +9,13 @@ penalize unproductive preparation.
 
 \subsection{Setting}
 
-The hackathon was co-hosted by The Atlantic, Infactory, and Hacks/\allowbreak Hackers in
-January 2026. Approximately 12 teams competed in a five-hour window to build
-``trusted news experiences of tomorrow'' using The Atlantic's editorial archive
-and Infactory's AI-powered content API. A panel of judges that included
-Nicholas Thompson, CEO of The Atlantic, evaluated final presentations. The
-practitioner-researcher had professional backgrounds in both education and
-software engineering, a combination that informed the product concept and
-design decisions throughout the event.
+The hackathon took place in January 2026, organized around a publisher's
+editorial archive and an AI-powered content API. Approximately 12 teams
+competed in a five-hour window to build working prototypes. A panel of
+industry judges evaluated final presentations. The practitioner-researcher
+had professional backgrounds in both education and software engineering,
+a combination that informed the product concept and design decisions
+throughout the event.
 
 \subsection{Preparation Phase}
 
@@ -58,8 +57,8 @@ ratio---9,386 words of planning against 8,496 lines of source code---was
     Contextual grounding & $\sim$2 hr & 10 docs (9,386 words) \\
     Collab.\ specification & (concurrent) & Product specification \\
     Task decomposition & (concurrent) & 64 beads w/ dependencies \\
-    Agent implementation & $\sim$2.7 hr & 43 files, 8,496 LoC \\
-    Deployment \& polish & 52 min & 9 commits, 6 bugs fixed \\
+    Agent implementation & 184 min & 43 beads closed (med.\ 5.9 min) \\
+    Deployment \& polish & 52 min & 9 commits, 6 bugs resolved \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -72,24 +71,28 @@ day-one/\allowbreak day-thirty demo toggle, and Socratic AI tutor. The agents
 drew on the contextual grounding documents and specification produced
 during preparation.
 
-The first git commit contained 76 files and 13,143 lines---the bulk of
-the codebase produced in one pass before any code was committed to version
-control. The subsequent deployment phase produced 9 commits over 52 minutes
-(mean inter-commit interval: 6 min 32 sec). The final codebase comprised 43
-TypeScript/TSX files totaling 8,496 lines, deployed to production with real
-Atlantic archive data served through a serverless API proxy.
+Bead closure timestamps provide a granular implementation timeline.
+During a 184-minute active window (19:41--22:45 UTC), agents closed
+43~beads with a median closure time of 5.9~minutes. Closures occurred
+in five parallel clusters---the largest comprising 10~beads closed
+within 21~seconds of each other, spanning five features and five
+supporting tasks across UI, state management, and API layers.
+Of 43~closures, 42 occurred before the first git commit at 22:24 UTC,
+indicating that the bead system---not version control---served as the
+primary progress tracker. The subsequent deployment phase produced
+9~commits over 52~minutes. The final codebase comprised 43
+TypeScript/TSX files totaling 8,496 lines deployed to production.
 
-The median bead closure time was 5.9 minutes. Of 68 total beads, 47 were
-closed (69.1\%). The 21 remaining open beads were stretch features explicitly
-deprioritized during decomposition. All 6 bugs filed during the event were
-resolved (100\% bug resolution rate).
+Of 64 hackathon-day beads, 43 were closed (67.2\%). The 21 remaining
+open beads were stretch features explicitly deprioritized during
+decomposition. All 6 bugs filed during the event were resolved.
 
-The resulting product, ``The Beat,'' was an educational platform with teacher
-dashboards, student research workspaces, article annotation tools, citation
-validation, and a Socratic AI tutor. The judges selected it for first place.
+The resulting prototype was a full-stack educational platform with
+multiple user roles, AI-assisted research tools, and a Socratic tutor
+component.
 
 Three observations are relevant to the methodology's evaluation. First, the
-architecture was correct on first pass: no structural refactoring was required
+architecture required no structural refactoring
 during the deployment phase. The bugs that emerged were integration and styling
 issues---API content truncation, data flow between components, favicon
 configuration---not architectural misalignment. This suggests that the
@@ -99,8 +102,10 @@ time ratio was approximately 5.7:1 (two hours of preparation against approximate
 21 minutes of active implementation per agent, across four parallel agents),
 indicating a deliberate investment directionally
 opposite to the ``start coding immediately'' pattern common in hackathon settings.
-The rework ratio---corrective commits as a proportion of total commits---was
-33\% (3 bug-fix commits of 9 total).
+Bug-type beads were resolved with a median closure time of 1.2~minutes
+(mean 1.5~minutes), compared to 9.7~minutes for implementation tasks,
+suggesting that defects introduced during parallel execution were
+quickly identified and corrected.
 Third, near-zero architectural rework is consistent with the hypothesis that rich
 upfront context reduces agent misalignment, though we cannot establish causation
 from a single case study.
@@ -119,3 +124,7 @@ software engineering likely contributed to the quality of contextual grounding,
 particularly the pedagogical domain encoding that informed the Socratic tutor.
 Whether mise en place yields equivalent results for practitioners without
 specialized domain expertise remains an open question, directly motivating RQ3.
+Nevertheless, the methodology's emphasis on deliberate preparation
+stands in marked contrast to the iteration-first patterns documented
+in practitioner literature~\cite{karpathy2025vibe}---a contrast
+that itself motivates formal comparative study.
