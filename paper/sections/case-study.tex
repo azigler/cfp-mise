@@ -71,25 +71,17 @@ day-one/\allowbreak day-thirty demo toggle, and Socratic AI tutor. The agents
 drew on the contextual grounding documents and specification produced
 during preparation.
 
-Bead closure timestamps provide a granular implementation timeline.
-During a 184-minute active window (19:41--22:45 UTC), agents closed
-43~beads with a median closure time of 5.9~minutes. Closures occurred
-in five parallel clusters---the largest comprising 10~beads closed
-within 21~seconds of each other, spanning five features and five
-supporting tasks across UI, state management, and API layers.
-Of 43~closures, 42 occurred before the first git commit at 22:24 UTC,
-indicating that the bead system---not version control---served as the
-primary progress tracker. The subsequent deployment phase produced
-9~commits over 52~minutes. The final codebase comprised 43
-TypeScript/TSX files totaling 8,496 lines deployed to production.
-
-Of 64 hackathon-day beads, 43 were closed (67.2\%). The 21 remaining
-open beads were stretch features explicitly deprioritized during
-decomposition. All 6 bugs filed during the event were resolved.
-
-The resulting prototype was a full-stack educational platform with
-multiple user roles, AI-assisted research tools, and a Socratic tutor
-component.
+The 64 task records produced during decomposition served as the direct
+interface between preparation and execution---the mechanism by which
+Phase~3 artifacts feed parallel agents (Figure~\ref{fig:methodology}).
+Each bead encoded an independently executable unit of work derived from
+the specification, with boundaries that required no inter-agent
+coordination. Bead closure timestamps confirm that this decomposition
+enabled genuine parallelism: agents completed work simultaneously across
+feature areas, with a median closure time of 5.9~minutes per bead.
+The subsequent deployment phase produced 9~commits over 52~minutes.
+The final codebase comprised 43 TypeScript/TSX files totaling 8,496
+lines, deployed to production as a full-stack educational platform.
 
 Three observations are relevant to the methodology's evaluation. First, the
 architecture required no structural refactoring
