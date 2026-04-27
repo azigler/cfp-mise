@@ -1,45 +1,45 @@
 \section{Introduction}
 
-AI coding agents have become remarkably capable at code generation.
-Controlled studies of GitHub Copilot report productivity gains of 21--55\%
-across programming tasks~\cite{peng2023copilot}, and the broader ecosystem
-of autonomous agents can now scaffold entire applications from natural-language
-descriptions. Yet the dominant workflow pattern for leveraging these
-capabilities---what Karpathy~\cite{karpathy2025vibe} termed ``vibe coding''---prioritizes
-speed of implementation over deliberate preparation. The developer describes
-an intent, the agent produces code, and misalignments are resolved through
-iterative correction. This creates a systematic alignment problem: agents
-operating without sufficient context produce code that requires extensive
-rework. Veracode reports that 45\% of AI-generated code contains security
-flaws~\cite{veracode2025ai}, and practitioners consistently observe that
-debugging misaligned agent output can consume substantial
-development time~\cite{huntley2025ralph, yegge2025beads}. The bottleneck in
-agentic coding is not code generation but alignment between developer intent
-and agent output---that is, the degree to which agent-produced artifacts
-exhibit specification compliance (planned features built as specified),
-architectural fidelity (design decisions honored across the codebase),
-and low rework ratio (corrective commits as a proportion of total commits).
+AI coding agents are remarkably capable at code generation: controlled
+studies of GitHub Copilot report productivity gains of 21--55\% across
+programming tasks~\cite{peng2023copilot}, and the broader ecosystem can
+now scaffold entire applications from natural-language descriptions.
+Yet the dominant workflow pattern---what
+Karpathy~\cite{karpathy2025vibe} termed ``vibe coding''---prioritizes
+speed of implementation over deliberate preparation. The developer
+describes an intent, the agent produces code, and misalignments are
+resolved through iterative correction. This creates a systematic
+alignment problem: agents operating without sufficient context produce
+code that requires extensive rework. Veracode reports that 45\% of
+AI-generated code contains security flaws~\cite{veracode2025ai}, and
+practitioners consistently observe that debugging misaligned agent
+output can consume substantial development
+time~\cite{huntley2025ralph, yegge2025beads}. The bottleneck in agentic
+coding is not code generation but \emph{alignment} between developer
+intent and agent output---specification compliance, architectural
+fidelity, and low corrective-commit ratios.
 
 We argue that this alignment problem is fundamentally a \emph{preparation}
-problem. Drawing on the culinary concept of \emph{mise en place}---a French
-term meaning ``everything in its place''---we propose a preparation-first
-methodology for agentic coding. In professional kitchens, thorough
-preparation before service enables fluid execution: every ingredient is
-measured, every tool is positioned, so that once cooking begins, the chef's
-hands never pause to search. The same principle applies to agent
-orchestration. When domain expertise, design intent, and task boundaries are
-externalized into structured artifacts \emph{before} agents begin writing
-code, the resulting implementation is more aligned, more coherent, and less
-costly to verify. Our methodology formalizes this preparation phase into
-three distinct steps: contextual grounding, where tacit knowledge and domain
-expertise are captured in machine-legible documents; collaborative
-specification, where human-agent dialogue produces detailed design artifacts;
-and task decomposition, where specifications are converted into structured,
-dependency-aware work records.
+problem. Drawing on the culinary concept of \emph{mise en place} (MEP)---a
+French term meaning ``everything in its place''---we propose a
+preparation-first methodology for agentic coding. In professional kitchens,
+thorough preparation enables fluid execution: every ingredient is
+measured and every tool positioned so that once cooking begins, the
+chef's hands never pause to search. The same principle applies to agent
+orchestration. When domain expertise, design intent, and task boundaries
+are externalized into structured artifacts \emph{before} agents begin
+writing code, the resulting implementation is more aligned, more
+coherent, and less costly to verify. MEP formalizes this preparation
+into three steps: contextual grounding (tacit knowledge captured in
+machine-legible documents), collaborative specification (human-agent
+dialogue producing detailed design artifacts), and task decomposition
+(specifications converted into dependency-aware work records). We
+position MEP relative to spec-driven development, prompt engineering,
+and iterative AI coding in Section~\ref{sec:related}.
 
 This paper makes four contributions:
 \begin{enumerate}
-  \item A three-phase mise en place methodology for agentic coding, grounded
+  \item A three-phase MEP methodology for agentic coding, grounded
     in backward design~\cite{wiggins1998understanding} and tacit knowledge
     externalization~\cite{polanyi1966tacit}.
   \item A case study applying this methodology in a competitive hackathon,

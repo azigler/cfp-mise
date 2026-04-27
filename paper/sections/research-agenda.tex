@@ -1,16 +1,46 @@
-\section{Research Agenda and Conclusion}
+\section{Limitations, Research Agenda, and Conclusion}
+\label{sec:agenda}
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+The empirical claims in this paper rest on a single hackathon, a single
+practitioner, and no control group. We acknowledge these limits
+directly. (i)~\textbf{Single hackathon, single case study.} Findings
+are illustrative, not generalizable; the five-hour competitive setting
+is not representative of multi-month software development, and a
+different practitioner, project, or AI model may produce different
+results. (ii)~\textbf{No control group, no iteration-first comparison.}
+We did not run a paired condition in which the same practitioner
+attempted the same project without preparation, nor did we instrument
+the other 11 teams. The 5.7:1 preparation-to-execution ratio and
+near-zero architectural rework are reported observations, not effects
+estimated against a baseline. (iii)~\textbf{Operator expertise as a
+confound.} The practitioner's dual professional background in education
+and software engineering likely contributed to the quality of
+contextual grounding---particularly the pedagogical encoding that
+informed the Socratic tutor---so we cannot separate the methodology's
+contribution from operator expertise. The qualitative team-variation
+sketch in Section~\ref{sec:teamvariation} adds context but does not
+constitute controlled comparison. We present these results as
+suggestive evidence that MEP merits further investigation, and
+explicitly frame the empirical questions as future work below.
 
 \subsection{Research Agenda}
 
-Mise en place as described here rests on a single case study and conceptual
+MEP as described here rests on a single case study and conceptual
 argument. Empirical validation across practitioners, domains, and agent
-models is essential. We propose five research questions:
+models is essential. We propose five research questions and three
+concrete research lines that follow directly from the limitations
+above:
 
 \begin{description}
   \item[RQ1:] \emph{Does deliberate preparation reduce agent misalignment
     compared to iterative development, and at what cost-benefit threshold?}
-    Controlled experiments comparing preparation-first and iteration-first
-    workflows could establish whether the upfront investment yields net savings.
+    A \textbf{comparative study} pairing preparation-first and
+    iteration-first workflows (preparation-first vs.\ iteration-first)
+    on matched tasks would establish whether the upfront investment
+    yields net savings; this directly addresses Limitation~(ii).
 
   \item[RQ2:] \emph{What constitutes ``sufficient'' context for agentic
     work---can we define stopping criteria for the preparation phase?}
@@ -18,13 +48,19 @@ models is essential. We propose five research questions:
     context volume would help practitioners know when to stop preparing.
 
   \item[RQ3:] \emph{How does context fluency vary across practitioners,
-    domains, and agent models?} Comparative studies could reveal whether
-    context fluency is trainable or a function of prior domain
-    knowledge~\cite{polanyi1958personal}.
+    domains, and agent models?} A
+    \textbf{multi-team replication study} across diverse codebases and
+    practitioners---generalizing the team-variation sketch in
+    Section~\ref{sec:teamvariation}---could reveal whether context
+    fluency is trainable or a function of prior domain
+    knowledge~\cite{polanyi1958personal}, addressing
+    Limitation~(iii).
 
-  \item[RQ4:] \emph{Can mise en place scale beyond prototyping to sustained,
-    multi-month development?} Longitudinal case studies would test the
-    methodology's applicability at scale~\cite{dakhel2025humanai}.
+  \item[RQ4:] \emph{Can MEP scale beyond prototyping to sustained,
+    multi-month development?} A \textbf{longitudinal study} of
+    context-fluency development on multi-month projects would test the
+    methodology's applicability at scale~\cite{dakhel2025humanai} and
+    address Limitation~(i).
 
   \item[RQ5:] \emph{What is the relationship between preparation time and
     implementation quality across project complexities?} A multi-project
@@ -33,13 +69,27 @@ models is essential. We propose five research questions:
     preparation-quality relationship~\cite{alomar2025promptware}.
 \end{description}
 
-These questions span experimental, observational, and longitudinal designs.
-RQ1 is the most immediately tractable, addressable with paired tasks and a
-modest participant pool.
+The three named research lines---comparative, replication, and
+longitudinal---convert the empirical concerns raised by the
+single-case design into a falsifiable program. RQ1 is the most
+immediately tractable, addressable with paired tasks and a modest
+participant pool.
+
+\subsection{Artifact Availability}
+\label{sec:artifact}
+
+To support the SIGSOFT Open Science Policy and enable replication, we
+release a research artifact bundle containing the anonymized hackathon
+data (timing, commit, and bead records reported in this paper), the
+prompts and agent configurations used, and the context-engineering
+scaffolds (CLAUDE.md, beads schema, planning templates) that
+constitute the MEP harness. The bundle is licensed CC-BY~4.0 (data) and
+MIT (code). It is archived on Zenodo at \url{https://zenodo.org/[TBD]}
+(DOI to be inserted in the camera-ready upload).
 
 \subsection{Conclusion}
 
-Mise en place, as presented here, is a starting framework rather
+MEP, as presented here, is a starting framework rather
 than a finished methodology---a formalization of practices that
 experienced practitioners already converge on
 independently~\cite{huntley2025ralph, horthy2025rpi,
