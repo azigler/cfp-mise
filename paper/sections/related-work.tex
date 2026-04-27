@@ -1,4 +1,5 @@
 \section{Background and Related Work}
+\label{sec:related}
 
 Early empirical studies of AI-assisted coding reported substantial productivity
 gains: Peng et al.\ found that developers using GitHub Copilot completed tasks
@@ -15,52 +16,89 @@ rework and defects. The bottleneck in agentic coding, we argue, is not code
 generation but \emph{alignment}---ensuring that what agents build matches what
 practitioners intend.
 
-Several preparation-oriented methodologies have emerged in response. Horthy's
-Research-Plan-Implement (RPI) methodology~\cite{horthy2025rpi} most directly
-anticipates our work, requiring practitioners to complete discrete research and
-planning phases before any code is generated. Mise en place differs from RPI
-by formalizing tacit knowledge externalization in Phase~1 and insisting on
-backward-design sequencing where all three phases complete before
-implementation begins. GitHub's Spec
-Kit~\cite{github2025speckit} formalizes specification-driven development, where
-a structured specification artifact governs agent behavior throughout
-implementation. More broadly, the discourse has shifted from
-prompt engineering to \emph{context engineering}: designing the complete
+\subsection{Prompt and Context Engineering}
+
+A substantial body of work studies how to elicit better behavior from
+large language models through careful instruction. Foundational results
+established that LLMs perform new tasks from in-context
+examples~\cite{brown2020gpt3}, and that intermediate reasoning steps
+improve task accuracy~\cite{wei2022chain}. Liu et al.'s
+survey~\cite{liu2023prompt} catalogues a maturing taxonomy of prompting
+techniques. More recently, the discourse has shifted from prompt
+engineering to \emph{context engineering}: designing the complete
 informational environment surrounding an LLM~\cite{anthropic2025context,
-gartner2025context}. Alomar et al.\ extend this by proposing \emph{promptware
-engineering}~\cite{alomar2025promptware}, while Dakhel et al.'s taxonomy
-identifies eleven distinct human-AI interaction
-types~\cite{dakhel2025humanai}. These contributions recognize that what happens
-\emph{before} agent execution shapes outcomes, but none offers a unified,
-theoretically grounded preparation methodology.
+gartner2025context}. Alomar et al.\ extend this thread with
+\emph{promptware engineering}~\cite{alomar2025promptware}, and Dakhel
+et al.'s taxonomy identifies eleven distinct human-AI interaction
+types~\cite{dakhel2025humanai}. MEP operates at a different scope from
+prompt engineering: prompt engineering tunes individual model
+invocations, whereas MEP structures the workflow-level artifacts
+(specifications, decompositions, externalized tacit knowledge) that
+precede and constrain those invocations. Both shape what the model
+receives, but at different granularities.
 
-A parallel stream of practitioner innovation addresses preparation through
-tooling. Karpathy coined ``vibe coding''~\cite{karpathy2025vibe} for a
-minimal-preparation workflow he scoped to throwaway projects, yet the term came
-to characterize the dominant mode of AI-assisted development. At the opposite end,
-Huntley's Ralph Loop~\cite{huntley2025ralph} provides fine-grained iterative task
-delegation, and Yegge's Beads framework~\cite{yegge2025beads} addresses agent
-memory through structured task records, extended by Emanuel's Rust
+\subsection{Preparation Methodologies}
+
+Several preparation-oriented methodologies anticipate aspects of our
+proposal. Horthy's Research-Plan-Implement (RPI)
+methodology~\cite{horthy2025rpi} most directly approaches this work,
+requiring practitioners to complete discrete research and planning
+phases before any code is generated. MEP differs from RPI by
+formalizing tacit knowledge externalization in Phase~1 and insisting on
+backward-design sequencing where all three phases complete before
+implementation begins. GitHub's Spec Kit~\cite{github2025speckit}
+formalizes specification-driven development, where a structured
+specification artifact governs agent behavior throughout
+implementation. These contributions recognize that what happens
+\emph{before} agent execution shapes outcomes, but none offers a
+unified, theoretically grounded preparation methodology that
+integrates tacit knowledge externalization, collaborative
+specification, and dependency-aware decomposition into one phase-gated
+sequence.
+
+\subsection{Practitioner Tooling and Theoretical Grounding}
+
+A parallel stream of practitioner innovation addresses preparation
+through tooling. Karpathy coined ``vibe coding''~\cite{karpathy2025vibe}
+for a minimal-preparation workflow scoped to throwaway projects, yet the
+term came to characterize the dominant mode of AI-assisted development.
+At the opposite end, Huntley's Ralph Loop~\cite{huntley2025ralph}
+provides fine-grained iterative task delegation, and Yegge's Beads
+framework~\cite{yegge2025beads} addresses agent memory through
+structured task records, extended by Emanuel's Rust
 reimplementation~\cite{emanuel2025beadsrust}. These tools solve specific
-problems---iteration, memory, orchestration---but assume that appropriate context
-already exists.
+problems---iteration, memory, orchestration---but assume that
+appropriate context already exists. MEP draws on two theoretical
+frameworks. Wiggins and McTighe's
+\emph{backward design}~\cite{wiggins1998understanding} holds that
+effective instruction begins with desired outcomes, then works backward
+through assessment criteria---we apply this principle by defining
+agent outputs and success criteria before designing context. Polanyi's
+tacit knowledge---``we can know more than we can
+tell''~\cite{polanyi1966tacit, polanyi1958personal}---frames preparation
+as a knowledge externalization problem; Nonaka and Takeuchi's SECI
+model~\cite{nonaka1995knowledge} formalizes this tacit-to-explicit
+conversion as a repeatable organizational process, grounding Phase~1.
 
-Our methodology draws on two theoretical frameworks. Wiggins and McTighe's
-\emph{backward design}~\cite{wiggins1998understanding} holds that effective
-instruction begins with desired outcomes, then works backward through assessment
-criteria---a deliberate inversion of the ``content-first'' approach. We apply
-this principle: defining agent outputs and success criteria before designing
-context. Polanyi's tacit knowledge---``we can know more than we can
-tell''~\cite{polanyi1966tacit, polanyi1958personal}---frames preparation as a
-knowledge externalization problem. Agents cannot access knowledge that has not
-been made explicit; preparation is the act of making it so. Nonaka and
-Takeuchi's SECI model~\cite{nonaka1995knowledge} formalizes this
-tacit-to-explicit conversion as a repeatable organizational process, providing
-additional theoretical grounding for Phase~1's knowledge externalization step.
+\subsection{Positioning: What is New}
+\label{sec:novelty}
 
-These four streams---empirical AI-assisted development research, emerging
-preparation methodologies, practitioner tooling, and educational
-theory---converge on the importance of deliberate preparation but remain
-fragmented. No existing work unifies them into a formalized methodology with
-theoretical grounding and empirical demonstration. Our mise en place framework
-addresses this gap.
+The ingredients of MEP (preparation, specifications, and task
+decomposition) are individually well-established in agile,
+design-thinking, and software-engineering education. Our contribution
+is integrative and scope-specific. Against
+\emph{spec-driven development}~\cite{github2025speckit}, MEP adds an
+explicit Phase~1 for externalizing tacit, value-laden domain knowledge
+that specifications alone do not capture. Against \emph{prompt
+engineering}~\cite{brown2020gpt3, wei2022chain, liu2023prompt}, MEP
+operates at workflow rather than invocation scope, structuring the
+persistent informational environment that multiple prompts and parallel
+agents share. Against \emph{iterative or vibe-coding
+workflows}~\cite{karpathy2025vibe, huntley2025ralph}, MEP front-loads
+alignment work that iterative flows pay incrementally as rework.
+Agentic workflows in particular need this preparation because agents
+lack the tacit context human collaborators carry across sessions and
+cannot iterate cheaply without expensive re-generation. MEP therefore
+complements, rather than replaces, prompt engineering and iterative
+methods, targeting the specific failure mode of under-contextualized
+agentic execution.

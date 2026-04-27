@@ -1,21 +1,21 @@
 \section{The Mise en Place Methodology}
 \label{sec:methodology}
 
-We propose \emph{mise en place} as a structured preparation methodology for agentic coding.
-The term, borrowed from professional culinary practice, describes the discipline of
-arranging every ingredient and tool before cooking begins. In a professional kitchen,
-the speed of service is a direct function of the thoroughness of preparation:
-chefs who invest time in mise en place execute complex dishes fluidly, while
-those who skip preparation spend service time searching, measuring, and
-recovering from avoidable errors. We observe an analogous dynamic in
-AI-assisted software development:
-when practitioners invest in deliberate preparation---externalizing domain knowledge,
-producing detailed specifications, and decomposing work into structured task
-records---the resulting agent execution is faster, more aligned with intent, and
-requires less corrective iteration.
+We propose mise en place (MEP) as a structured preparation methodology
+for agentic coding. The term, borrowed from professional culinary practice,
+describes the discipline of arranging every ingredient and tool before cooking
+begins. In a professional kitchen, the speed of service is a direct function
+of the thoroughness of preparation: chefs who invest time in MEP execute
+complex dishes fluidly, while those who skip preparation spend service time
+searching, measuring, and recovering from avoidable errors. We observe an
+analogous dynamic in AI-assisted software development: when practitioners
+invest in deliberate preparation---externalizing domain knowledge, producing
+detailed specifications, and decomposing work into structured task
+records---the resulting agent execution is faster, more aligned with intent,
+and requires less corrective iteration.
 
-The methodology formalizes preparation into three sequential phases, each
-producing defined artifacts that feed into the next. Inspired by the backward design
+MEP formalizes preparation into three sequential phases, each producing
+defined artifacts that feed into the next. Inspired by the backward design
 principle~\cite{wiggins1998understanding}, the phases are completed before any
 implementation begins. Figure~\ref{fig:methodology}
 illustrates the three phases and their relationship to agent execution.
@@ -75,7 +75,7 @@ illustrates the three phases and their relationship to agent execution.
     \node[stagelbl] at (-1.5, -2.9) {\rotatebox{90}{Validation}};
 
   \end{tikzpicture}
-  \caption{The mise en place methodology. Three sequential preparation phases produce structured artifacts consumed by parallel agents. Task decomposition distributes independent work units to $n$ concurrent agents, whose outputs converge in integration verification.}
+  \caption{The MEP methodology. Three sequential preparation phases produce structured artifacts consumed by parallel agents. Task decomposition distributes independent work units to $n$ concurrent agents, whose outputs converge in integration verification.}
   \label{fig:methodology}
 \end{figure}
 
@@ -145,10 +145,10 @@ Following parallel agent execution, an integration verification stage validates
 outputs against the specification. The practitioner reviews agent-produced code,
 files defects as new task records, and dispatches agents for targeted corrections.
 
-The three phases of mise en place draw individually on established work---tacit
+The three phases of MEP draw individually on established work---tacit
 knowledge externalization~\cite{polanyi1958personal}, the RPI
 methodology~\cite{horthy2025rpi}, and iterative task
-delegation~\cite{huntley2025ralph}. The methodology's contribution is their
+delegation~\cite{huntley2025ralph}. MEP's contribution is their
 integration into a sequential, phase-gated process with defined artifacts and
 inspiration from backward design: the insistence that all three phases
 complete before implementation begins.
