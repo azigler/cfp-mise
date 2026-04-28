@@ -1,0 +1,29 @@
+{
+  "title": "Mise en Place for Agentic Coding — Research Artifact Bundle",
+  "description": "Research artifact accompanying the VibeX 2026 paper \"Mise en Place for Agentic Coding: Deliberate Preparation as Context Engineering Methodology\" (1st International Workshop on Vibe Coding and Vibe Researching, co-located with EASE 2026, Glasgow). The bundle contains anonymized hackathon timing and metrics data, the agent contract and planning corpus from the case-study workflow, and harness documentation for the three-phase preparation methodology. Published in support of the SIGSOFT Open Science Policy. The complete inventory and licensing terms are in artifact/README.md.",
+  "creators": [
+    {
+      "name": "Zigler, Andrew",
+      "affiliation": "LinearB",
+      "orcid": "0009-0001-8073-5917"
+    }
+  ],
+  "keywords": [
+    "agentic coding",
+    "mise en place",
+    "context engineering",
+    "vibe coding",
+    "context fluency",
+    "AI-assisted software development",
+    "VibeX 2026",
+    "EASE 2026",
+    "SIGSOFT Open Science"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "version": "1.0.0",
+  "language": "eng",
+  "communities": [],
+  "related_identifiers": []
+}
