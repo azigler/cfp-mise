@@ -1,62 +1,88 @@
-\section{Research Agenda and Conclusion}
+\section{Limitations, Research Agenda, and Conclusion}
+\label{sec:agenda}
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+The empirical claims rest on a single hackathon, a single
+practitioner, and no control group. (i)~\textbf{Single hackathon,
+single case study.} Findings are illustrative, not generalizable; a
+five-hour competitive setting is not multi-month software
+development. (ii)~\textbf{No control group, no iteration-first
+comparison.} We did not run a paired condition without preparation,
+nor instrument the other 11 teams; the 5.7:1 ratio and near-zero
+rework are observations, not effects against a baseline.
+(iii)~\textbf{Operator expertise as a confound.} The practitioner's
+dual background in education and software engineering likely
+contributed to the contextual grounding's quality, so we cannot
+separate the methodology's contribution from operator expertise. The
+team-variation sketch in Section~\ref{sec:teamvariation} adds context
+but does not constitute controlled comparison.
 
 \subsection{Research Agenda}
 
-Mise en place as described here rests on a single case study and conceptual
-argument. Empirical validation across practitioners, domains, and agent
-models is essential. We propose five research questions:
+We propose five research questions and three concrete research
+lines that follow from the limitations above:
 
 \begin{description}
-  \item[RQ1:] \emph{Does deliberate preparation reduce agent misalignment
-    compared to iterative development, and at what cost-benefit threshold?}
-    Controlled experiments comparing preparation-first and iteration-first
-    workflows could establish whether the upfront investment yields net savings.
+  \item[RQ1:] \emph{Does deliberate preparation reduce agent
+    misalignment compared to iterative development?} A
+    \textbf{comparative study} pairing preparation-first and
+    iteration-first workflows on matched tasks would establish
+    whether the upfront investment yields net savings (addresses
+    Limitation~(ii)).
 
-  \item[RQ2:] \emph{What constitutes ``sufficient'' context for agentic
-    work---can we define stopping criteria for the preparation phase?}
-    A saturation-style analysis measuring alignment quality as a function of
-    context volume would help practitioners know when to stop preparing.
+  \item[RQ2:] \emph{What constitutes ``sufficient'' context---can we
+    define stopping criteria for the preparation phase?} A
+    saturation-style analysis of alignment quality vs.\ context
+    volume would help practitioners know when to stop preparing.
 
-  \item[RQ3:] \emph{How does context fluency vary across practitioners,
-    domains, and agent models?} Comparative studies could reveal whether
-    context fluency is trainable or a function of prior domain
-    knowledge~\cite{polanyi1958personal}.
+  \item[RQ3:] \emph{How does context fluency vary across
+    practitioners, domains, and agent models?} A \textbf{multi-team
+    replication study} generalizing the sketch in
+    Section~\ref{sec:teamvariation} could reveal whether context
+    fluency is trainable or a function of prior domain
+    knowledge~\cite{polanyi1958personal} (addresses
+    Limitation~(iii)).
 
-  \item[RQ4:] \emph{Can mise en place scale beyond prototyping to sustained,
-    multi-month development?} Longitudinal case studies would test the
-    methodology's applicability at scale~\cite{dakhel2025humanai}.
+  \item[RQ4:] \emph{Can MEP scale beyond prototyping to multi-month
+    development?} A \textbf{longitudinal study} of context-fluency
+    development would test scale
+    applicability~\cite{dakhel2025humanai} (addresses
+    Limitation~(i)).
 
-  \item[RQ5:] \emph{What is the relationship between preparation time and
-    implementation quality across project complexities?} A multi-project
-    dataset correlating preparation artifacts with implementation metrics
-    could yield quantitative models of the
-    preparation-quality relationship~\cite{alomar2025promptware}.
+  \item[RQ5:] \emph{What is the relationship between preparation
+    time and implementation quality?} A multi-project dataset could
+    yield quantitative models of the preparation-quality
+    relationship~\cite{alomar2025promptware}.
 \end{description}
 
-These questions span experimental, observational, and longitudinal designs.
-RQ1 is the most immediately tractable, addressable with paired tasks and a
-modest participant pool.
+The three named lines---comparative, replication, and
+longitudinal---convert the empirical concerns into a falsifiable
+program; RQ1 is the most immediately tractable.
+
+\subsection{Artifact Availability}
+\label{sec:artifact}
+
+To support the SIGSOFT Open Science Policy and enable replication, we
+release a research artifact bundle containing the anonymized hackathon
+data (timing, commit, and bead records reported in this paper), the
+prompts and agent configurations used, and the context-engineering
+scaffolds (CLAUDE.md, beads schema, planning templates) that
+constitute the MEP harness. The bundle is licensed CC-BY~4.0 (data) and
+MIT (code). It is archived on Zenodo at
+\url{https://doi.org/10.5281/zenodo.19868258}.
 
 \subsection{Conclusion}
 
-Mise en place, as presented here, is a starting framework rather
-than a finished methodology---a formalization of practices that
-experienced practitioners already converge on
-independently~\cite{huntley2025ralph, horthy2025rpi,
-yegge2025beads}. The methodology formalizes what Nonaka and
-Takeuchi~\cite{nonaka1995knowledge} term externalization---converting
-tacit practitioner knowledge into explicit artifacts that agents can
-consume. Our case study suggests that deliberate preparation
-can compress implementation time and reduce architectural
-misalignment, but we claim no generalizability from a single
-hackathon. What we do claim is that the alignment problem in agentic
-coding is fundamentally a preparation problem, and that the field
-would benefit from treating the work before agents write code as a
-first-class engineering discipline.
-
-Context fluency offers a lens for understanding emerging practitioner skills---skills
-that bridge domain expertise, pedagogical design, and specification
-craft~\cite{anthropic2025context, github2025speckit}. We invite empirical
-validation, replication across domains, and the development of tools that support
-preparation-phase work as the field moves from ad-hoc agent interaction toward
-disciplined context engineering.
+MEP is a starting framework---a formalization of practices that
+experienced practitioners converge on
+independently~\cite{huntley2025ralph, horthy2025rpi, yegge2025beads},
+grounded in what Nonaka and Takeuchi~\cite{nonaka1995knowledge} term
+externalization. We claim no generalizability from a single
+hackathon, but argue that the alignment problem in agentic coding is
+fundamentally a preparation problem, deserving treatment as a
+first-class engineering discipline. Context fluency names the
+emerging practitioner skill at the intersection of domain expertise
+and specification craft~\cite{anthropic2025context,
+github2025speckit}.

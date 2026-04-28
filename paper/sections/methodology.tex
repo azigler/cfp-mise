@@ -1,24 +1,18 @@
 \section{The Mise en Place Methodology}
 \label{sec:methodology}
 
-We propose \emph{mise en place} as a structured preparation methodology for agentic coding.
-The term, borrowed from professional culinary practice, describes the discipline of
-arranging every ingredient and tool before cooking begins. In a professional kitchen,
-the speed of service is a direct function of the thoroughness of preparation:
-chefs who invest time in mise en place execute complex dishes fluidly, while
-those who skip preparation spend service time searching, measuring, and
-recovering from avoidable errors. We observe an analogous dynamic in
-AI-assisted software development:
-when practitioners invest in deliberate preparation---externalizing domain knowledge,
-producing detailed specifications, and decomposing work into structured task
-records---the resulting agent execution is faster, more aligned with intent, and
-requires less corrective iteration.
-
-The methodology formalizes preparation into three sequential phases, each
-producing defined artifacts that feed into the next. Inspired by the backward design
-principle~\cite{wiggins1998understanding}, the phases are completed before any
-implementation begins. Figure~\ref{fig:methodology}
-illustrates the three phases and their relationship to agent execution.
+We propose mise en place (MEP) as a structured preparation
+methodology for agentic coding. We observe in AI-assisted software development the same
+dynamic that governs professional kitchens: practitioners who invest
+in deliberate preparation---externalizing domain knowledge,
+producing detailed specifications, and decomposing work into
+structured task records---execute faster, with more alignment, and
+require less corrective iteration. MEP formalizes preparation into
+three sequential phases, each producing artifacts that feed the
+next. Inspired by backward design~\cite{wiggins1998understanding},
+the phases are completed before implementation begins.
+Figure~\ref{fig:methodology} illustrates the phases and their
+relationship to agent execution.
 
 \begin{figure}[t]
   \centering
@@ -75,80 +69,52 @@ illustrates the three phases and their relationship to agent execution.
     \node[stagelbl] at (-1.5, -2.9) {\rotatebox{90}{Validation}};
 
   \end{tikzpicture}
-  \caption{The mise en place methodology. Three sequential preparation phases produce structured artifacts consumed by parallel agents. Task decomposition distributes independent work units to $n$ concurrent agents, whose outputs converge in integration verification.}
+  \caption{The MEP methodology. Three sequential preparation phases produce structured artifacts consumed by parallel agents. Task decomposition distributes independent work units to $n$ concurrent agents, whose outputs converge in integration verification.}
   \label{fig:methodology}
 \end{figure}
 
 \subsection{Phase 1: Contextual Grounding}
 
-The first phase externalizes domain expertise and tacit knowledge into structured
-documents that agents can consume. Its purpose is to capture context that agents
-cannot generate independently---what Polanyi~\cite{polanyi1966tacit} characterized
-as tacit knowledge, the understanding that practitioners possess but struggle
-to articulate. In agentic coding, this includes institutional context,
-domain-specific constraints, competitive landscape awareness, design philosophy,
-and the practitioner's accumulated judgment about what constitutes quality in
-the target domain.
-
-The artifacts produced are briefing documents: markdown files encoding domain
-knowledge, competitive analysis, architectural preferences, and design philosophy.
-These documents serve a dual purpose. First, they force the practitioner to
-articulate knowledge that would otherwise remain implicit. Second, they create a
-persistent context layer that agents reference throughout implementation, reducing
-the need for repeated clarification. Following backward
-design~\cite{wiggins1998understanding}, contextual grounding begins with outcomes
-(the ``why'') rather than technical features (the ``what''), establishing alignment
-criteria that propagate through subsequent phases.
+The first phase externalizes domain expertise and tacit knowledge
+into structured documents agents can consume---what
+Polanyi~\cite{polanyi1966tacit} called tacit knowledge,
+the understanding practitioners possess but struggle to articulate.
+The artifacts are briefing documents (markdown files encoding domain
+knowledge, competitive analysis, design philosophy) that force the
+practitioner to articulate implicit knowledge and create a
+persistent context layer agents reference throughout implementation.
+Following backward design~\cite{wiggins1998understanding},
+contextual grounding begins with outcomes rather than features.
 
 \subsection{Phase 2: Collaborative Specification}
 
-The second phase produces detailed design artifacts through structured
-human-agent dialogue. The practitioner describes intent; the agent proposes
-implementation details; the practitioner accepts, rejects, or modifies the
-proposal. This iterative refinement continues until both parties converge on a
-specification detailed enough for implementation without further clarification.
-
-The key mechanism is the encoding of value judgments as specification constraints.
-What to \emph{exclude} is as important as what to include. Scope
-management---the deliberate decision to constrain features, simplify interactions,
-or defer capabilities---represents a class of judgment that agents cannot make
-independently. The output is a comprehensive design document that specifies
-screens, interactions, data flows, and quality standards, capturing not just the
-\emph{what} but the \emph{why} behind each decision. This distinction separates
-collaborative specification from conventional requirements gathering: the
-specification encodes rationale, enabling agents to make aligned micro-decisions
-during implementation without escalating to the practitioner.
+The second phase produces detailed design artifacts through
+structured human-agent dialogue: the practitioner describes intent,
+the agent proposes details, the practitioner accepts, rejects, or
+modifies. The key mechanism is encoding value judgments as
+specification constraints---what to \emph{exclude} is as important
+as what to include. The output is a design document specifying
+screens, interactions, data flows, and quality standards, capturing
+not just the \emph{what} but the \emph{why}. This rationale enables
+agents to make aligned micro-decisions during implementation
+without escalating to the practitioner.
 
 \subsection{Phase 3: Task Decomposition}
 
 The final preparatory phase converts the specification into
 structured, dependency-aware task records. We employ
-Beads~\cite{yegge2025beads, emanuel2025beadsrust}---lightweight
-JSON records backed by Git, carrying priorities, dependencies,
-and acceptance criteria---though the principle generalizes to any
-structured task system.
+Beads~\cite{yegge2025beads, emanuel2025beadsrust}---lightweight JSON
+records backed by Git, carrying priorities, dependencies, and
+acceptance criteria---though the principle generalizes. Fine-grained
+decomposition enables parallel agent execution without coordination
+overhead: when each task has clear boundaries and explicit
+dependencies, multiple agents work simultaneously. The coordination
+burden shifts from runtime to preparation time, where human
+judgment about system architecture is most valuable. Following
+parallel execution, integration verification validates outputs
+against the specification.
 
-Fine-grained decomposition enables parallel agent execution without coordination
-overhead. When each task is independently executable---with clear boundaries,
-defined inputs and outputs, and explicit dependencies---multiple agents can work
-simultaneously. The coordination burden shifts from runtime (agents negotiating)
-to preparation time (the practitioner defining task boundaries), where human
-judgment about system architecture is most valuable. The output of this phase is a dependency graph where each node represents an
-independently executable unit of work. The graph structure enables the
-practitioner to identify the critical path, allocate agents to parallelizable
-tasks, and monitor progress through structured completion signals. It also
-provides a natural mechanism for prioritization: core features are
-executed first, while stretch goals are explicitly deferred, preventing scope
-creep during implementation.
-
-Following parallel agent execution, an integration verification stage validates
-outputs against the specification. The practitioner reviews agent-produced code,
-files defects as new task records, and dispatches agents for targeted corrections.
-
-The three phases of mise en place draw individually on established work---tacit
-knowledge externalization~\cite{polanyi1958personal}, the RPI
-methodology~\cite{horthy2025rpi}, and iterative task
-delegation~\cite{huntley2025ralph}. The methodology's contribution is their
-integration into a sequential, phase-gated process with defined artifacts and
-inspiration from backward design: the insistence that all three phases
-complete before implementation begins.
+The three phases draw individually on established
+work~\cite{polanyi1958personal, horthy2025rpi, huntley2025ralph};
+MEP's contribution is their integration into a phase-gated process
+that completes before implementation begins.
