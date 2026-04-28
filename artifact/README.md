@@ -77,8 +77,9 @@ freely.
 
 ## Citation
 
-When the artifact is published to Zenodo, a DOI will be issued. The
-canonical citation is:
+This artifact is archived on Zenodo at
+[`10.5281/zenodo.19868258`](https://doi.org/10.5281/zenodo.19868258).
+The canonical citation is:
 
 ```bibtex
 @misc{zigler2026miseartifact,
@@ -86,39 +87,32 @@ canonical citation is:
   title        = {Mise en Place for Agentic Coding — Research Artifact Bundle},
   year         = {2026},
   howpublished = {Zenodo},
-  doi          = {10.5281/zenodo.[TBD]},
-  url          = {https://doi.org/10.5281/zenodo.[TBD]}
+  doi          = {10.5281/zenodo.19868258},
+  url          = {https://doi.org/10.5281/zenodo.19868258}
 }
 ```
 
-Replace `[TBD]` with the issued DOI after upload (see Upload Steps).
+The DOI above is the canonical citation for this artifact bundle.
 
-## Upload steps (for the paper author)
+## How this artifact was published
 
-1. **Verify contents.** From the repo root: `find artifact -type f
-   | sort` and confirm everything in the inventory above is present.
-2. **Create a release archive.** `tar czf
-   mise-en-place-artifact.tar.gz artifact/` (or zip equivalent).
-3. **Upload to Zenodo.** Visit https://zenodo.org/uploads/new (sign in
-   with GitHub or ORCID).
-   - Upload type: *Dataset* (or *Other*, if you prefer to flag it as a
-     mixed-content artifact).
-   - Title: *Mise en Place for Agentic Coding — Research Artifact Bundle*.
-   - Authors: Andrew Zigler (LinearB, ORCID 0009-0001-8073-5917).
-   - Description: copy the "What this artifact is" paragraphs above.
-   - Keywords: `agentic coding`, `mise en place`, `context engineering`,
-     `vibe coding`, `context fluency`, `SIGSOFT Open Science`.
-   - License: *Creative Commons Attribution 4.0 International*.
-   - Related identifier: link to the published paper DOI (when available).
-   - Funding: none.
-4. **Publish.** Zenodo will issue a DOI in the form
-   `10.5281/zenodo.NNNNNNN`.
-5. **Replace the placeholder.** In the paper source
-   (`paper/sections/research-agenda.tex`, "Artifact Availability"
-   subsection), replace `https://zenodo.org/[TBD]` with
-   `https://doi.org/10.5281/zenodo.NNNNNNN`. Rebuild the PDF.
-6. **Optional.** Mirror the bundle to a GitHub release on the same
-   repo (`github.com/azigler/cfp-mise/releases`) for redundancy.
+This bundle was published via the GitHub-Zenodo integration on
+2026-04-28. The flow:
+
+1. `.zenodo.json` at the repo root supplied metadata (title, creator
+   with ORCID, keywords, CC-BY 4.0 license, dataset upload type).
+2. A GitHub release tagged `artifact-v1.0` was cut from the
+   `camera-ready` branch at
+   <https://github.com/azigler/cfp-mise/releases/tag/artifact-v1.0>.
+3. Zenodo received the GitHub release event and minted DOI
+   `10.5281/zenodo.19868258` for this version.
+4. The DOI was inserted into `paper/sections/research-agenda.tex`
+   (Artifact Availability subsection) and into this README's BibTeX
+   block above, then the PDF was rebuilt.
+
+If a future revision of this artifact is needed, cut a new GitHub
+release tag (`artifact-v1.1`, etc.); Zenodo will mint a new version
+DOI under the same parent record.
 
 ## Provenance
 
