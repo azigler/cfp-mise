@@ -1,2 +1,5 @@
 # bv (beads viewer) local config and caches
 .bv/
+
+# arXiv submission tarball — reproducible from paper/ sources, not source-of-truth
+arxiv-source.tar.gz
